@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from ticket.views import WelcomeView, CustomerMenuView
+from django.urls import path, re_path
+from ticket.views import WelcomeView, CustomerMenuView, GetTicketView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', WelcomeView.as_view()),
-    path('menu/', CustomerMenuView.as_view())
+    path('menu/', CustomerMenuView.as_view()),
+    re_path('get_ticket/(?P<service>[\\w]+)', GetTicketView.as_view())
 ]
