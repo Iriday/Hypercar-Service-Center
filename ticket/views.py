@@ -23,3 +23,11 @@ class GetTicketView(View):
             raise Http404
         id_, time = get_ticket_id_and_min_to_wait(service)
         return render(request, "ticket/get_ticket.html", context={"ticket_id": id_, "min_to_wait": time})
+
+
+class OperatorMenuView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "ticket/operator_menu.html",
+                      context={"change_oil_queue": len(service_customers["change_oil"]),
+                               "inflate_tires_queue": len(service_customers["inflate_tires"]),
+                               "diagnostic_queue": len(service_customers["diagnostic"])})

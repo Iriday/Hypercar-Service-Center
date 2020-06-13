@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from ticket.views import WelcomeView, CustomerMenuView, GetTicketView
+from ticket.views import WelcomeView, CustomerMenuView, GetTicketView, OperatorMenuView
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', WelcomeView.as_view()),
     path('menu/', CustomerMenuView.as_view()),
-    re_path('get_ticket/(?P<service>[\\w]+)', GetTicketView.as_view())
+    re_path('get_ticket/(?P<service>[\\w]+)', GetTicketView.as_view()),
+    path("processing", OperatorMenuView.as_view()),
+    path("processing/", RedirectView.as_view(url="/processing"))
 ]
