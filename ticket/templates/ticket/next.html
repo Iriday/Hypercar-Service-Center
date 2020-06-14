@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Next</title>
+</head>
+<body>
+<div>{% if current_ticket_id > 0 %}
+    Next ticket #{{ current_ticket_id }}
+{% elif current_ticket_id == -1 %}
+    Waiting for the next client
+{% endif %}</div>
+</body>
+</html>
