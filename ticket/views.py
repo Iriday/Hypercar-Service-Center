@@ -4,7 +4,7 @@ from ticket.models import get_ticket_id_and_min_to_wait, service_customers, proc
 from django.conf import settings
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import Http404
 from django.views import View
 
 
@@ -12,7 +12,7 @@ from django.views import View
 
 class WelcomeView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("<h2>Welcome to the Hypercar Service!<h2>")
+        return render(request, "ticket/welcome.html")
 
 
 class CustomerMenuView(View):

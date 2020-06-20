@@ -1,15 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Operator menu</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/operator_menu.css' %}">
 </head>
 <body>
-<div>Change oil queue: {{ change_oil_queue}}</div>
-<div>Inflate tires queue: {{ inflate_tires_queue }}</div>
-<div>Diagnostic queue: {{  diagnostic_queue}}</div>
-<form method="post" action="processing">{% csrf_token %}
-   <button type="submit">Process next</button>
-</form>
+<div class="container">
+    <h3>Queues</h3>
+    <div>Change oil queue: {{ change_oil_queue }}</div>
+    <div>Inflate tires queue: {{ inflate_tires_queue }}</div>
+    <div>Diagnostic queue: {{ diagnostic_queue }}</div>
+    <form method="post" action="processing">{% csrf_token %}
+        <button type="submit" class="process_next_btn">Process next</button>
+    </form>
+</div>
 </body>
 </html>

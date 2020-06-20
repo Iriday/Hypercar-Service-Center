@@ -1,0 +1,11 @@
+.container {
+    width: 40%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: 25vh auto;
+    text-align: center;
+    font-size: xx-large;
+    border: gray solid medium;
+    border-radius: 1em;
+    background-color: bisque;
+}
